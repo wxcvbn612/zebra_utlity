@@ -607,8 +607,11 @@ public class Printer implements MethodChannel.MethodCallHandler {
         } else if (call.method.equals("checkPermission")) {
             checkPermission(context, result);
         } else if (call.method.equals("convertBase64ImageToZPLString")) {
-            convertBase64ImageToZPLString(call.argument("Data").toString())
-                    , Integer.valueOf(call.argument("rotation").toString()), result);
+            convertBase64ImageToZPLString(
+                call.argument("Data").toString(),
+                Integer.valueOf(call.argument("rotation").toString()),
+                result
+            );
         } else if (call.method.equals("disconnect")) {
             new Thread(new Runnable() {
                 @Override
@@ -667,3 +670,4 @@ public class Printer implements MethodChannel.MethodCallHandler {
         }
     }
 }
+
